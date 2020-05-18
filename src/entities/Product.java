@@ -1,6 +1,7 @@
 package entities;
 
-public class Product {
+// para poder usar o max na PROGRAM implementar o Comparable aqui
+public class Product implements Comparable<Product>{ // poderia ser T, mas fica mais legível como Product
     private String name;
     private Double price;
 
@@ -28,5 +29,10 @@ public class Product {
     @Override
     public String toString() {
         return name + ", " + String.format("%.2f",price);
+    }
+
+    @Override
+    public int compareTo(Product other) { // poderia ser o, mas ficou mais legível
+        return price.compareTo(other.getPrice());
     }
 }
